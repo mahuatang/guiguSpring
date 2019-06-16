@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/annotation/UserAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/annotation/UserDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/annotation/UsreService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/annotation/generic/UserService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/helloworld/Main.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/ref/Main.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/ref/MyBeanPostProcessor.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/ref/UserBean.java" charset="GBK" />
+  </component>
+</project>

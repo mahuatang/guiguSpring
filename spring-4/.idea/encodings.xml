@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/jdbc/DepartmentDao.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/jdbc/JDBCTest.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/tx/BookShopDao.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/tx/BookShopDaoImpl.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/com/atguigu/spring/tx/BookShopServiceImpl.java" charset="GB2312" />
+  </component>
+</project>
