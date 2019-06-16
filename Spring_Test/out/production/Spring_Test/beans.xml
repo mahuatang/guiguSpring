@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <bean id="helloworld" class="com.test.guigu.helloworld.HelloWorld" scope="prototype">
+        <property name="user" value="Jerry"></property>
+    </bean>
+
+    <bean id="helloworld2" class="com.test.guigu.helloworld.HelloWorld" scope="prototype">
+        <constructor-arg value="Haha"></constructor-arg>
+    </bean>
+
+    <bean id="car" class="com.test.guigu.helloworld.Car">
+        <constructor-arg value="haha" index="0"></constructor-arg>
+        <constructor-arg value="cc" index="1"></constructor-arg>
+        <constructor-arg value="22.3" type="float"></constructor-arg>
+    </bean>
+
+    <bean id="car2" class="com.test.guigu.helloworld.Car">
+        <constructor-arg value="cc" index="0"></constructor-arg>
+        <constructor-arg index="1">
+            <value><![CDATA[<ATARZA>]]></value>
+        </constructor-arg>
+        <constructor-arg value="22" type="int"></constructor-arg>
+    </bean>
+
+    <bean id="dao5" class="com.test.guigu.ref.Dao">
+    </bean>
+
+    <bean id="service" class="com.test.guigu.ref.Service">
+        <property name="dao" ref="dao5"></property>
+    </bean>
+
+    <bean id="service2" class="com.test.guigu.ref.Service">
+        <property name="dao">
+            <bean class="com.test.guigu.ref.Dao">
+                <property name="dataSource" value="wokao"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="action" class="com.test.guigu.ref.Action">
+        <property name="service" ref="service"></property>
+    </bean>
+
+    <bean id="action2" class="com.test.guigu.ref.Action">
+        <property name="service" ref="service"></property>
+        <property name="service.dao.dataSource" value="cvcv"></property>
+    </bean>
+
+    <bean id="user" class="com.test.guigu.helloworld.User">
+        <property name="userName" value="zhanglong"></property>
+        <property name="cars">
+            <list>
+                <ref bean="car"></ref>
+                <ref bean="car2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <util:list id="list">
+        <ref bean="car"></ref>
+        <ref bean="car2"></ref>
+    </util:list>
+
+    <bean id="user2" class="com.test.guigu.helloworld.User">
+        <property name="userName" value="heell"></property>
+        <property name="cars" ref="list"></property>
+    </bean>
+
+    <bean id="user3" class="com.test.guigu.helloworld.User" p:userName="ii" p:cars-ref="list">
+    </bean>
+
+    <bean id="user4" parent="user" p:userName="aa"></bean>
+    <bean id="user6" parent="user" p:userName="哈哈哈"></bean>
+    <bean id="user5" parent="user" p:userName="阿斯顿发的啥饭" depends-on="user6"></bean>
+</beans>

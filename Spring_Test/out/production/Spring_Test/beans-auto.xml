@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <bean id="dao" class="com.test.guigu.ref.Dao">
+        <property name="dataSource" value="ccc"></property>
+    </bean>
+
+    <bean id="service" class="com.test.guigu.ref.Service" autowire="byName"></bean>
+    <bean id="action" class="com.test.guigu.ref.Action" autowire="byType"></bean>
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="driverClass" value="${jdbc.driverClass}"></property>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+
+        <property name="initialPoolSize" value="${jdbc.initPoolSize}"></property>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+    </bean>
+
+    <context:property-placeholder location="db.properties"></context:property-placeholder>
+
+    <bean id="girl" class="com.test.guigu.helloworld.User" scope="prototype">
+        <property name="userName" value="jj周大啦"></property>
+    </bean>
+
+    <bean id="boy" class="com.test.guigu.helloworld.User" init-method="init22" destroy-method="destory22" scope="prototype">
+        <property name="userName" value="阿舒"></property>
+        <property name="wifeName" value="#{girl.userName}"></property>
+    </bean>
+
+    <bean class="com.test.guigu.ref.MyBeanPostProcessor"></bean>
+
+    <bean id="dateFormat" class="java.text.DateFormat" factory-method="getDateInstance">
+        <constructor-arg value="2"></constructor-arg>
+    </bean>
+
+    <!-- 配置通过 FactroyBean 的方式来创建 bean 的实例(了解) -->
+    <bean id="user" class="com.test.guigu.ref.UserBean"></bean>
+</beans>

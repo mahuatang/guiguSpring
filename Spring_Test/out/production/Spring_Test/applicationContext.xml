@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloworld" class="com2.test.guigu.helloworld.HelloWorld" scope="singleton" init-method="init" destroy-method="destory">
+        <property name="user" value="HA"></property>
+    </bean>
+
+    <bean id="dao" class="com2.test.guigu.ref.UserDao">
+    </bean>
+
+    <bean id="service" class="com2.test.guigu.ref.UserService22">
+        <property name="userDao" ref="dao"></property>
+    </bean>
+
+    <bean id="action" class="com2.test.guigu.ref.UserAction">
+        <property name="userService" ref="service"></property>
+    </bean>
+
+</beans>
